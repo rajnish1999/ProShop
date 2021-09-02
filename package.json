@@ -1,0 +1,24 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "A MERN stack project",
+  "main": "server.js",
+  "scripts": {
+    "test": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajnish1999/ProShop.git"
+  },
+  "author": "Rajnish Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajnish1999/ProShop/issues"
+  },
+  "homepage": "https://github.com/rajnish1999/ProShop#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
