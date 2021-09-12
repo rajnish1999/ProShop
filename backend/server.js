@@ -1,11 +1,11 @@
 const express = require('express');
-const products = require('./data/products')
 const dotenv = require('dotenv');
 const connectDB = require('./config/db.js')
+const productRoutes = require('./routes/productRoutes')
+
 dotenv.config();
 
 connectDB();
-console.log("after connect");
 
 const app = express();
 
@@ -15,14 +15,7 @@ app.get('/', (req, res) => {
     res.send("home")
 })
 
-app.get('/api/products', (req, res) => {
-    res.send(products)
-})
-
-app.get('/api/products/:id', (req, res) => {
-    const product = products.find((p) => req.params.id === p._id)
-    res.send(product)
-})
+app.use('/api/products', productRoutes)
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`)
