@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db.js')
 const productRoutes = require('./routes/productRoutes')
-
+const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 dotenv.config();
 
 connectDB();
@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+
+app.use(notFound)
+
+app.use(errorHandler)
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`)
